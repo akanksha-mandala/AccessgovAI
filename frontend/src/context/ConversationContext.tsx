@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export interface ChatMessage {
@@ -26,6 +27,11 @@ export const ConversationProvider: React.FC<{ children: React.ReactNode }> = ({ 
     return localStorage.getItem('accessgov_session_id') || `session_${Date.now()}`;
   });
 
+  // Initialize language BEFORE messages because the welcome message uses selectedLanguage.
+  const [selectedLanguage, setSelectedLanguage] = useState<string>(() =>
+    localStorage.getItem('accessgov_language') || 'en'
+  );
+
   const [messages, setMessages] = useState<ChatMessage[]>(() => {
     const saved = localStorage.getItem(`messages_${sessionId}`);
     return saved ? JSON.parse(saved) : [
@@ -39,9 +45,10 @@ export const ConversationProvider: React.FC<{ children: React.ReactNode }> = ({ 
     ];
   });
 
-  const [selectedLanguage, setSelectedLanguage] = useState<string>(() => localStorage.getItem('accessgov_language') || 'en');
+  useEffect(() => {
+    localStorage.setItem('accessgov_language', selectedLanguage);
+  }, [selectedLanguage]);
 
-  useEffect(() => { localStorage.setItem('accessgov_language', selectedLanguage); }, [selectedLanguage]);
   const [isStreaming, setIsStreaming] = useState<boolean>(false);
 
   useEffect(() => {
