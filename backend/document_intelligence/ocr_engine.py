@@ -34,7 +34,7 @@ class OCREngine:
 
         # Initialize PaddleOCR during backend startup rather than
         # making the first document upload wait for model loading.
-        self._initialize_paddle_ocr()
+        
 
     # ============================================================
     # PADDLE OCR INITIALIZATION
