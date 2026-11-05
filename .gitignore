@@ -252,3 +252,29 @@ pnpm-debug.log*
 Thumbs.db
 .vscode/
 
+# =========================
+# AccessGov AI - Project Specific
+# =========================
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environment
+.venv/
+
+# Uploaded user documents / generated files
+uploads/
+storage/
+document_storage/
+*.pdf
+
+# PostgreSQL / local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# OCR / model cache files
+.paddlex/
+.paddleocr/
