@@ -251,14 +251,6 @@ Users should verify final requirements through the relevant official government 
 
 ---
 
-## 👩‍💻 Author
-
-**Akanksha Mandala**  
-B.Tech — Artificial Intelligence & Machine Learning  
-Kalasalingam Academy of Research and Education
-
----
-
 ### Repository
 
 **AccessGov AI**  
